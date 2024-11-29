@@ -1,12 +1,13 @@
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import character_router
+import app.routers as routers
+import app.config as config
 
 app = FastAPI()
 
 # Include character router
-app.include_router(character_router.router)
+app.include_router(routers.character_router.router)
 
 # Add CORS middleware
 app.add_middleware(
